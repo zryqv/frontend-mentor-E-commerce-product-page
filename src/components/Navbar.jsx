@@ -4,13 +4,16 @@ import { ReactComponent as MenuIcon } from "../images/icon-menu.svg";
 
 import avatar from "../images/image-avatar.png";
 const Menu = ["Collections", "Men", "Women", "About", "Contact"];
-function Navbar({ quantity, setShowCart, showCart }) {
+function Navbar({ quantity, setShowCart, showCart, setShowHamMenu }) {
   return (
     <div className="max-w-screen px-4 sm:px-9 md:px-24 z-50  bg-white  ">
       <div className="flex justify-between md:items-start items-center md:border-b-[1px]  border-[#B6BCC8] w-full md:h-[7.3rem] h-20 pb-1 md:pb-0   ">
         <div className="flex justify-start items-center ">
           <div className="lg:pr-9 md:pr-0 md:-mt-2 flex justify-center items-center ">
-            <MenuIcon className="mr-3 mt-1 md:hidden" />
+            <MenuIcon
+              className="mr-3 mt-1 md:hidden cursor-pointer"
+              onClick={() => setShowHamMenu(true)}
+            />
             <img src={logo} alt="" />
           </div>
           <ul className="hidden md:flex justify-evenly items-center   ">

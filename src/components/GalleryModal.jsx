@@ -55,6 +55,7 @@ function GalleryModal({
               }`}
             >
               <img
+                alt="the product"
                 onClick={() => setFeaturedImage(index)}
                 className={`hover:opacity-60 cursor-pointer ${
                   images[featuredImage].src === image.src &&

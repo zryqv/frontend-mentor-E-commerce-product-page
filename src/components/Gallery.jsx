@@ -29,6 +29,7 @@ function Gallery({
                 images[featuredImage].src === image.src &&
                 "rounded-lg opacity-50 "
               }`}
+              alt="the product"
               src={image.src}
             />
           </div>

@@ -12,6 +12,7 @@ import { ReactComponent as Plus } from "./images/icon-plus.svg";
 import { ReactComponent as Cart } from "./images/icon-cart.svg";
 import { useState } from "react";
 import PhoneGallery from "./components/PhoneGallery";
+import HamMenu from "./components/HamMenu";
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -38,7 +39,7 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showCartModal, setShowCartModal] = useState(false);
   const [featuredImage, setFeaturedImage] = useState(0);
-
+  const [showHamMenu, setShowHamMenu] = useState(false);
   const [showGalleryModal, setShowGalleryModal] = useState(false);
 
   return (
@@ -51,6 +52,7 @@ function App() {
           setShowGalleryModal={setShowGalleryModal}
         />
       )}
+      {showHamMenu && <HamMenu setShowHamMenu={setShowHamMenu} />}
       <div className="max-w-screen min-h-screen bg-white text-[1rem] relative">
         {(showCartModal || showCart) && (
           <div className="flex justify-center items-center md:block">
@@ -73,6 +75,7 @@ function App() {
           </div>
         )}
         <Navbar
+          setShowHamMenu={setShowHamMenu}
           quantity={checkedQuantity}
           setShowCart={setShowCart}
           showCart={showCart}
