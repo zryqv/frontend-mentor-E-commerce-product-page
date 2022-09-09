@@ -1,6 +1,14 @@
 import Button from './Button';
 import { ReactComponent as Trash } from '../images/icon-delete.svg';
-function Modal({ className, cart, setCart, formatter, ...props }) {
+function Modal({
+  checkedQuantity,
+  setCheckedQuantity,
+  className,
+  cart,
+  setCart,
+  formatter,
+  ...props
+}) {
   return (
     <div
       {...props}
@@ -35,9 +43,12 @@ function Modal({ className, cart, setCart, formatter, ...props }) {
               <div className=''>
                 <Trash
                   className='cursor-pointer'
-                  onClick={() =>
-                    setCart(cart.filter((item) => item.title !== product.title))
-                  }
+                  onClick={() => {
+                    setCheckedQuantity(checkedQuantity - product.quantity);
+                    setCart(
+                      cart.filter((item) => item.title !== product.title)
+                    );
+                  }}
                 />
               </div>
             </div>

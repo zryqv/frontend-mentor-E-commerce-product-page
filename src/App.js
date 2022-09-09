@@ -53,6 +53,8 @@ function App() {
       <div className='max-w-screen min-h-screen bg-white text-[1rem] relative'>
         {(showCartModal || showCart) && (
           <Modal
+            setCheckedQuantity={setCheckedQuantity}
+            checkedQuantity={checkedQuantity}
             onMouseEnter={() => {
               setShowCartModal(true);
             }}
