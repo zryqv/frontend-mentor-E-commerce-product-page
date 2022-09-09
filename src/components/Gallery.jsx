@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function Gallery({
   images,
   setShowGalleryModal,
@@ -7,29 +5,29 @@ function Gallery({
   setFeaturedImage,
 }) {
   return (
-    <div className='w-[25vw]'>
-      <div className='w-full'>
+    <div className="lg:w-[25vw] md:w-[45vw]">
+      <div className="w-full ">
         <img
           onClick={() => setShowGalleryModal(true)}
           src={images[featuredImage].src}
-          alt=''
-          className='w-full rounded-xl cursor-pointer'
+          alt=""
+          className="w-full rounded-xl cursor-pointer"
         />
       </div>
-      <div className='flex justify-between items-start w-full py-4'>
+      <div className="flex justify-between items-start w-full py-4">
         {images.map((image, index) => (
           <div
             key={image.id}
-            className={` w-[5rem] h-[5rem] overflow-hidden rounded-lg cursor-pointer ${
+            className={`md:w-[24%]  overflow-hidden rounded-lg cursor-pointer ${
               images[featuredImage].src === image.src &&
-              'border-[1.5px] border-[#FF7D1A]'
+              "border-[1.5px] border-[#FF7D1A]"
             }`}
           >
             <img
               onClick={() => setFeaturedImage(index)}
-              className={`hover:opacity-60 w-[5.5rem] h-[5.5rem] cursor-pointer ${
+              className={`hover:opacity-60 w-full h-full cursor-pointer ${
                 images[featuredImage].src === image.src &&
-                'rounded-lg opacity-50 '
+                "rounded-lg opacity-50 "
               }`}
               src={image.src}
             />
